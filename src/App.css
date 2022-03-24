@@ -38,3 +38,70 @@
 .fibonacci-cell{
   background: #1ef33a;
 }
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #222;
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  column-gap: .5rem;
+  row-gap: 1.5rem;
+}
+
+.loading:after {
+  content: "Logging you in";
+  color: #fff;
+  flex: 0 100%;
+  font: 700 1.3rem "Caveat", cursive;
+  text-align: center;
+}
+
+.loading div {
+  background-color: #fff;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: loading-effect 1s cubic-bezier(.77, .8, .58, 1) infinite
+    var(--delay, .2s) alternate-reverse;
+}
+
+.loading div:nth-child(2) {
+  --delay: .4s;
+}
+.loading div:nth-child(3) {
+  --delay: .6s;
+}
+.loading div:nth-child(4) {
+  --delay: .8s;
+}
+.loading div:nth-child(5) {
+  --delay: 1s;
+}
+
+@keyframes loading-effect {
+  0% {
+    box-shadow: 0 0 4px 1px #fff3;
+    opacity: .2;
+    transform: translateY(3px) scale(1.1);
+  }
+
+  100% {
+    opacity: .8;
+    transform: translateY(-3px);
+  }
+}

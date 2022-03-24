@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import Cell from "../Cell";
+import Loading from "../Loading";
 
 const Grid = ({ matrix  }) => {
   const [cells, setCells] = useState([]);
 
   // Render for first time the whole array..
-  useEffect(() => {
+  function initializeArray(){
     let rows;
     const tmpArray = [];
     matrix.forEach((row, index_row) => {
@@ -22,12 +23,16 @@ const Grid = ({ matrix  }) => {
       tmpArray.push(rows);
     });
     setCells(tmpArray);
+  }
+  
+  useEffect(() => {
+      setTimeout(()=>{initializeArray()},1500)
+    
   } , []);
 
- 
-
-
-  return <div className="grid">{cells}</div>;
+ return (
+  cells.length ===0 ?<Loading/> :<div className="grid">{cells}</div>
+  )
 };
 
 const mapStateToProps = ({ fibonacci }) => {
