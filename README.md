@@ -1,5 +1,3 @@
-Sure, here's an example documentation for your Fibonacci-assignment-React repository:
-
 # Fibonacci Assignment React
 
 This repository contains a simple React app which workes based on Fibonacci algorithm
